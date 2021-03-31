@@ -23,6 +23,7 @@ namespace JuniorSlataTestTask
         public MainWindow()
         {
             InitializeComponent();
+            // Some changes
         }
     }
 }
