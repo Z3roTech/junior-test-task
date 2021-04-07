@@ -6,20 +6,20 @@
         xmlns:local="clr-namespace:JuniorSlataTestTask"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Регистрация" Height="500" Width="650" Closing="Window_Closing"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closed="Window_Closed">
+        Title="Регистрация" Height="500" Width="650" Closing="Window_Closing"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Background="#00BD39">
         <Border MinWidth="300" MaxWidth="600" Margin="15" Padding="30" VerticalAlignment="Center" Background="#D5D5D5" CornerRadius="35">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="20" Opacity="0.8" ShadowDepth="10" Color="#70227E" Direction="315" />
             </Border.Effect>
-            <StackPanel>
+            <StackPanel x:Name="continerReg">
                 <TextBlock Text="Регистрация" FontSize="30" FontWeight="Bold" />
                 <TextBlock Text="Создайте новый аккаунт для входа в приложение" Margin="0 0 0 20" FontSize="12" FontStyle="Italic" />
-                <TextBox x:Name="tbLogin" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <PasswordBox x:Name="tbPass" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                <PasswordBox x:Name="tbPassCheck" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                <TextBox x:Name="tbName" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox x:Name="tbSurname" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="tbLogin" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="32" />
+                <PasswordBox x:Name="tbPass" GotKeyboardFocus="KeyboardFocusEvent" materialDesign:HintAssist.Hint="Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" MaxLength="32" />
+                <PasswordBox x:Name="tbPassCheck" GotKeyboardFocus="KeyboardFocusEvent" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" LostFocus="tbPassCheck_LostFocus" />
+                <TextBox x:Name="tbName" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Имя" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="32" />
+                <TextBox x:Name="tbSurname" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Фамилия" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="32" />
                 <Grid Margin="15 20">
                     <Button x:Name="btnSignIn" materialDesign:ButtonAssist.CornerRadius="10" Content="Зарегистрироваться" Click="Register_ButtonClick" Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="auto" HorizontalAlignment="Left" />
                     <Button x:Name="btnRegister" materialDesign:ButtonAssist.CornerRadius="10" Content="Авторизоваться" Click="SignIn_ButtonClick" Style="{StaticResource MaterialDesignFlatButton}" Width="auto" HorizontalAlignment="Right" />
