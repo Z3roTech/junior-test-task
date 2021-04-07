@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JuniorSlataTestTask.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,8 @@ namespace JuniorSlataTestTask
     internal class User
     {
         public int id { get; set; }
-        private string login, password, name, surname, permission;
+        private string login, password, name, surname;
+        private Permissions permission;
 
         public string Login
         {
@@ -33,7 +35,7 @@ namespace JuniorSlataTestTask
             set { surname = value; }
         }
 
-        public string Permission
+        public Permissions Permission
         {
             get { return permission; }
             set { permission = value; }
@@ -49,12 +51,11 @@ namespace JuniorSlataTestTask
             Password = password;
             Name = name;
             Surname = surname;
-            Permission = "User";
+            Permission = Permissions.User;
         }
 
-        public void ChangePermissions(string newPerm)
+        public void ChangePermissions(Permissions newPerm)
         {
-            if (String.IsNullOrEmpty(newPerm)) return;
             Permission = newPerm;
         }
     }

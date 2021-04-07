@@ -21,8 +21,6 @@ namespace JuniorSlataTestTask
     {
         public event EventHandler WindowClosed;
 
-        private AppContext dbcontext;
-
         protected virtual void OnWindowClosed(EventArgs e)
         {
             EventHandler handler = WindowClosed;
@@ -35,7 +33,6 @@ namespace JuniorSlataTestTask
         public RegWindow()
         {
             InitializeComponent();
-            dbcontext = new AppContext();
         }
 
         private void Register_ButtonClick(object sender, RoutedEventArgs e)
@@ -86,8 +83,11 @@ namespace JuniorSlataTestTask
                         ((PasswordBox)el).Background = Brushes.Transparent;
                     }
                 }
-                dbcontext.Users.Add(new User(login, password, name, surname));
-                dbcontext.SaveChanges();
+                using (AppContext dbcontext = new AppContext())
+                {
+                    dbcontext.Users.Add(new User(login, password, name, surname));
+                    dbcontext.SaveChanges();
+                }
 
                 Application.Current.MainWindow.Show();
                 this.Close();
@@ -109,6 +109,11 @@ namespace JuniorSlataTestTask
 
         private void tbPassCheck_LostFocus(object sender, RoutedEventArgs e)
         {
+            if (tbPass.Password != tbPassCheck.Password)
+            {
+                tbPassCheck.ToolTip = "Пароли не совпадают!";
+                tbPassCheck.Background = Brushes.LightPink;
+            }
         }
 
         private void KeyboardFocusEvent(object sender, KeyboardFocusChangedEventArgs e)
