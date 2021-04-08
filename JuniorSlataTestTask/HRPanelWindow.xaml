@@ -6,7 +6,42 @@
         xmlns:local="clr-namespace:JuniorSlataTestTask"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="HRPanelWindow" Height="450" Width="800">
-    <Grid>
+        Title="Панель администратора" Height="450" Width="800" WindowStartupLocation="CenterScreen" MaxWidth="1000" MaxHeight="600" SizeChanged="Window_SizeChanged" Closing="Window_Closing">
+    <Grid Background="#3f3f3f">
+        <Grid>
+            <Border x:Name="controlContainer" Width="Auto" Margin="15" Padding="25" HorizontalAlignment="Left" Background="#D5D5D5" CornerRadius="35">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="20" Opacity="0.8" ShadowDepth="10" Color="#70227E" Direction="315" />
+                </Border.Effect>
+                <StackPanel>
+                    <Button Content="Добавить соискателя" Click="AddJobseakerBtnClick" Margin="0 5" />
+                    <Button Content="Изменить запись" Click="ChangeDataBtnClick" Margin="0 5" />
+                    <Button Content="Удалить запись" Click="RemoveDataBtnClick" Margin="0 5" />
+                    <Separator Background="Black" Margin="0 20 0 5" />
+                    <Button Content="Выйти из аккаунта" Click="SignOutBtnClick" Margin="0 5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignRaisedLightButton}" />
+                </StackPanel>
+            </Border>
+            <Border x:Name="dataContainer" Width="Auto" MaxWidth="500" Margin="15" Padding="30" VerticalAlignment="Stretch" HorizontalAlignment="Right" Background="#D5D5D5" CornerRadius="35">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="20" Opacity="0.8" ShadowDepth="10" Color="#70227E" Direction="315" />
+                </Border.Effect>
+                <StackPanel>
+                    <DataGrid x:Name="UserDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" FontSize="14" FontFamily="Consolas">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding id}" Header="id" Width="auto" IsReadOnly="True" FontWeight="Bold" />
+                            <DataGridTextColumn Binding="{Binding FullName}" Header="ФИО" Width="auto" IsReadOnly="True" FontWeight="Bold" />
+                            <DataGridTextColumn Binding="{Binding Position}" Header="Должность" Width="auto" IsReadOnly="True" FontWeight="Bold" />
+                            <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Номер телефона" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Task.DateTimeStart, StringFormat=\{0:dd.MM.yy\}}" Header="Дата собеседования" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding TimeToTask}" Header="Срок выполнения задания" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Manager.Surname}" Header="Собеседователь" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Mentor.Surname}" Header="Руководитель" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Task.Completeness}" Header="Выполнение задания" Width="auto" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Border>
+        </Grid>
+        <materialDesign:DialogHost x:Name="dialogHost" Width="auto" Height="auto"></materialDesign:DialogHost>
     </Grid>
 </Window>

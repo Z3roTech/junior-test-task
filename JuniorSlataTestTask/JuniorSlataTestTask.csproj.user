@@ -13,10 +13,19 @@
     <Compile Update="AuthWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\AddJobseakerControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ChangeJobseakerDataControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\ChangePasswordControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\ChangePermissionControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\DropJobseakerDataControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\DropUserControl.xaml.cs">
@@ -39,10 +48,19 @@
     <Page Update="AuthWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Controls\AddJobseakerControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ChangeJobseakerDataControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\ChangePasswordControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\ChangePermissionControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\DropJobseakerDataControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\DropUserControl.xaml">

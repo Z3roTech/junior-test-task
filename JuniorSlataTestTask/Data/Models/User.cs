@@ -1,5 +1,6 @@
 ﻿using JuniorSlataTestTask.Data.Models;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace JuniorSlataTestTask
@@ -7,30 +8,15 @@ namespace JuniorSlataTestTask
     public class User
     {
         public int id { get; set; }
-        private string login, password, name, surname;
-        private Permissions permission;
 
-        public string Login { get => login; set => login = value; }
+        public string Login { get; set; }
 
-        public string Password { get => password; set => password = value; }
+        public string Password { get; set; }
 
-        public string Name { get => name; set => name = value; }
+        public string Name { get; set; }
 
-        public string Surname { get => surname; set => surname = value; }
+        public string Surname { get; set; }
 
-        public Permissions Permission { get => permission; set => permission = value; }
-
-        public User()
-        {
-        }
-
-        public User(string login, string password, string name, string surname)
-        {
-            Login = login;
-            Password = password;
-            Name = name;
-            Surname = surname;
-            Permission = Permissions.User;
-        }
+        public Permissions Permission { get; set; }
     }
 }

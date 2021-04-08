@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -8,35 +9,73 @@ namespace JuniorSlataTestTask.Data.Models
     public class Jobseaker
     {
         public int id { get; set; }
-        private string fullName, phoneNumber, position;
-        private int taskId, hrManagerId;
-        private DateTime timeToTask;
+        public string FullName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Position { get; set; }
+        public string TimeToTask { get; set; }
+        public int TaskId { get; set; }
 
-        public string FullName { get => fullName; set => fullName = value; }
-        public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
-        public string Position { get => position; set => position = value; }
-        public int TaskId { get => taskId; set => taskId = value; }
-        public int HRManagerId { get => hrManagerId; set => hrManagerId = value; }
-        public DateTime TimeToTask { get => timeToTask; set => timeToTask = value; }
+        private Task task;
 
-        public Jobseaker()
+        public Task Task
         {
+            get
+            {
+                if (task != null) return task;
+                using (AppContext db = new AppContext())
+                {
+                    if (task == null)
+                        task = db.Tasks.Where(t => t.id == TaskId).FirstOrDefault();
+                    return task;
+                };
+            }
+            set
+            {
+                task = value;
+            }
         }
 
-        public Jobseaker(string name, string phone, string pos, DateTime taskTime)
-        {
-            FullName = name;
-            PhoneNumber = phone;
-            Position = pos;
-            TimeToTask = taskTime;
-            HRManagerId = (int)App.Current.Properties["AuthUserID"];
-            using (AppContext db = new AppContext())
-            {
-                Task task = new Task(DateTime.UtcNow);
-                db.Tasks.Add(task);
-                db.SaveChanges();
+        public int? ManagerId { get; set; }
+        private User manager;
 
-                TaskId = db.Tasks.Where(t => t.JobseakerId == this.id).FirstOrDefault().id;
+        [NotMapped]
+        public User Manager
+        {
+            get
+            {
+                if (manager != null) return manager;
+                using (AppContext db = new AppContext())
+                {
+                    if (manager == null)
+                        Manager = db.Users.Where(t => t.id == ManagerId).FirstOrDefault();
+                    return manager;
+                };
+            }
+            set
+            {
+                manager = value;
+            }
+        }
+
+        public int? MentorId { get; set; }
+        private User mentor;
+
+        [NotMapped]
+        public User Mentor
+        {
+            get
+            {
+                if (mentor != null) return mentor;
+                using (AppContext db = new AppContext())
+                {
+                    if (mentor == null)
+                        mentor = db.Users.Where(t => t.id == MentorId).FirstOrDefault();
+                    return mentor;
+                };
+            }
+            set
+            {
+                mentor = value;
             }
         }
     }

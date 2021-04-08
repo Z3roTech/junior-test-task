@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="JuniorSlataTestTask.Controls.ChangeJobseakerDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:JuniorSlataTestTask.Controls"
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="600" d:DesignWidth="400" d:Background="Transparent" Visibility="Visible">
+    <Grid Background="#3f3f3f">
+        <Border MinWidth="300" MaxWidth="600" Margin="15" Padding="10" VerticalAlignment="Center" Background="#D5D5D5" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" Opacity="0.8" ShadowDepth="3" Color="#70227E" Direction="315" />
+            </Border.Effect>
+            <StackPanel Margin="10" Height="auto">
+                <TextBlock Margin="0 10" FontSize="18" FontWeight="Bold" VerticalAlignment="Top">Введите данные соискателя:</TextBlock>
+                <StackPanel VerticalAlignment="Center" Margin="0 30 0 60">
+                    <TextBox x:Name="SurnameInput" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Фамилия" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="FirstNameInput" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Имя" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="LastNameInput" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Отчество" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="PhoneNumberInput" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Номер телефона" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="PositionInput" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Претендуемая должность" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+                    <DatePicker x:Name="DateTimeStartInput" FirstDayOfWeek="Monday" GotKeyboardFocus="KeyboardFocusEvent" Style="{DynamicResource MaterialDesignFloatingHintDatePicker}" />
+                    <TextBox x:Name="TimeToTaskInput" GotKeyboardFocus="KeyboardFocusEvent" TextWrapping="NoWrap" materialDesign:HintAssist.Hint="Дней на выполнение задания" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+                </StackPanel>
+                <Grid VerticalAlignment="Bottom">
+                    <Button Content="Принять" x:Name="AcceptBtn" Click="AcceptClick" materialDesign:ButtonAssist.CornerRadius="10" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignRaisedAccentButton}" />
+                    <Button Content="Отмена" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" materialDesign:ButtonAssist.CornerRadius="10" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFlatButton}" />
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

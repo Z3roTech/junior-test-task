@@ -126,12 +126,37 @@ namespace JuniorSlataTestTask
                     SignIn_ButtonClick(sender, e);
                     break;
 
-                case Key.F10:
-                    using (AppContext db = new AppContext())
+                case Key.PageUp:
+                    using (AppContext dbcontext = new AppContext())
                     {
-                        //Jobseaker jobseaker = new Jobseaker("Kane", "000000", "ITEngineer", new DateTime(0, 0, 2));
-                        db.Jobseakers.Add(new Jobseaker("Kane", "000000", "ITEngineer", new DateTime(0, 0, 2)));
-                        db.SaveChanges();
+                        string admin = "admin";
+                        string manager = "manager";
+                        string mentor = "mentor";
+                        dbcontext.Users.Add(new User()
+                        {
+                            Login = admin,
+                            Password = admin,
+                            Name = admin,
+                            Surname = admin,
+                            Permission = Permissions.Administrator
+                        });
+                        dbcontext.Users.Add(new User()
+                        {
+                            Login = manager,
+                            Password = manager,
+                            Name = manager,
+                            Surname = manager,
+                            Permission = Permissions.HRManager
+                        });
+                        dbcontext.Users.Add(new User()
+                        {
+                            Login = mentor,
+                            Password = mentor,
+                            Name = mentor,
+                            Surname = mentor,
+                            Permission = Permissions.Mentor
+                        });
+                        dbcontext.SaveChanges();
                     }
                     break;
 

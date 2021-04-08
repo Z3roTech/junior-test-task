@@ -79,7 +79,14 @@ namespace JuniorSlataTestTask
                 }
                 using (AppContext dbcontext = new AppContext())
                 {
-                    dbcontext.Users.Add(new User(login, password, name, surname));
+                    dbcontext.Users.Add(new User()
+                    {
+                        Login = login,
+                        Password = password,
+                        Name = name,
+                        Surname = surname,
+                        Permission = Data.Models.Permissions.User
+                    });
                     dbcontext.SaveChanges();
                 }
 
