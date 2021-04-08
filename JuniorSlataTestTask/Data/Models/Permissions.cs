@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace JuniorSlataTestTask.Data.Models
 {
-    internal enum Permissions
+    public enum Permissions
     {
-        Administrator = 0, User = 1, HRManager = 2, Mentor = 3
+        Administrator = 0,
+        User = 1,
+        HRManager = 2,
+        Mentor = 3
     }
 }

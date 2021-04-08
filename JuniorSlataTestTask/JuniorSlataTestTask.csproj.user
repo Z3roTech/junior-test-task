@@ -7,7 +7,25 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AdminPanelWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AuthWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ChangePasswordControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ChangePermissionControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\DropUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HRPanelWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MentorPanelWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="RegWindow.xaml.cs">
@@ -15,7 +33,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AdminPanelWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AuthWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ChangePasswordControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\ChangePermissionControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\DropUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HRPanelWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MentorPanelWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RegWindow.xaml">

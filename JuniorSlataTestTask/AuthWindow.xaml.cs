@@ -1,17 +1,11 @@
 ﻿using JuniorSlataTestTask.Data.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace JuniorSlataTestTask
 {
@@ -36,7 +30,7 @@ namespace JuniorSlataTestTask
                 tbLogin.ToolTip = "Неверный ввод даных!";
                 tbLogin.Background = Brushes.LightPink;
             }
-            else if (password.Length < 8 || String.IsNullOrEmpty(password) ||
+            else if (String.IsNullOrEmpty(password) ||
                 new Regex("[^a-zA-Z0-9]").IsMatch(password))
             {
                 tbPass.ToolTip = "Неверный ввод даных";
@@ -76,7 +70,7 @@ namespace JuniorSlataTestTask
                             this.Hide();
                             HRPanelWindow hrPanel = new HRPanelWindow();
                             hrPanel.SignOut += ChildWindow_Closed;
-                            adminPanel.Show();
+                            hrPanel.Show();
                             break;
 
                         case Permissions.Mentor:
@@ -121,6 +115,15 @@ namespace JuniorSlataTestTask
             if (sender is PasswordBox)
             {
                 ((PasswordBox)sender).Background = Brushes.Transparent;
+            }
+        }
+
+        private void tbPass_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SignIn_ButtonClick(sender, e
+                    );
             }
         }
     }

@@ -1,11 +1,10 @@
 ﻿using JuniorSlataTestTask.Data.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Text.RegularExpressions;
 
 namespace JuniorSlataTestTask
 {
-    internal class User
+    public class User
     {
         public int id { get; set; }
         private string login, password, name, surname;
@@ -57,6 +56,14 @@ namespace JuniorSlataTestTask
         public void ChangePermissions(Permissions newPerm)
         {
             Permission = newPerm;
+        }
+
+        public void ChangePassword(string newPassword)
+        {
+            if (String.IsNullOrEmpty(newPassword)) return;
+            if (new Regex("[^a-zA-Z0-9]").IsMatch(newPassword)) return;
+            if (newPassword.Length < 8) return;
+            Password = newPassword;
         }
     }
 }

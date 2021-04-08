@@ -15,11 +15,11 @@
             <StackPanel Name="containerCanvas">
                 <TextBlock Text="Добро пожаловать" FontSize="30" FontWeight="Bold" />
                 <TextBlock Text="Введите данные для входа в приложение" Margin="0 0 0 20" FontSize="12" FontStyle="Italic" />
-                <TextBox x:Name="tbLogin" GotKeyboardFocus="KeyboardFocusEvent" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <PasswordBox x:Name="tbPass" GotKeyboardFocus="KeyboardFocusEvent" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                <TextBox x:Name="tbLogin" GotKeyboardFocus="KeyboardFocusEvent" materialDesign:HintAssist.Hint="Введите логин" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" />
+                <PasswordBox x:Name="tbPass" GotKeyboardFocus="KeyboardFocusEvent" materialDesign:HintAssist.Hint="Введите пароль" Style="{DynamicResource MaterialDesignFloatingHintPasswordBox}" KeyUp="tbPass_KeyUp" />
                 <Grid Margin="15 20">
-                    <Button x:Name="btnSignIn" materialDesign:ButtonAssist.CornerRadius="10" Content="Войти" Click="SignIn_ButtonClick" Style="{StaticResource MaterialDesignRaisedDarkButton}" Width="150" HorizontalAlignment="Left" />
-                    <Button x:Name="btnRegister" materialDesign:ButtonAssist.CornerRadius="10" Content="Зарегистрироваться" Click="Register_ButtonClick" Style="{StaticResource MaterialDesignFlatButton}" Width="auto" HorizontalAlignment="Right" />
+                    <Button x:Name="btnSignIn" materialDesign:ButtonAssist.CornerRadius="10" Content="Войти" Click="SignIn_ButtonClick" Style="{DynamicResource MaterialDesignRaisedDarkButton}" Width="150" HorizontalAlignment="Left" />
+                    <Button x:Name="btnRegister" materialDesign:ButtonAssist.CornerRadius="10" Content="Зарегистрироваться" Click="Register_ButtonClick" Style="{DynamicResource MaterialDesignFlatButton}" Width="auto" HorizontalAlignment="Right" />
                 </Grid>
             </StackPanel>
         </Border>
