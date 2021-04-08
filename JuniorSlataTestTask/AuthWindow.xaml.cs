@@ -120,10 +120,22 @@ namespace JuniorSlataTestTask
 
         private void tbPass_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            switch (e.Key)
             {
-                SignIn_ButtonClick(sender, e
-                    );
+                case Key.Enter:
+                    SignIn_ButtonClick(sender, e);
+                    break;
+
+                case Key.F10:
+                    using (AppContext db = new AppContext())
+                    {
+                        //Jobseaker jobseaker = new Jobseaker("Kane", "000000", "ITEngineer", new DateTime(0, 0, 2));
+                        db.Jobseakers.Add(new Jobseaker("Kane", "000000", "ITEngineer", new DateTime(0, 0, 2)));
+                        db.SaveChanges();
+                    }
+                    break;
+
+                default: break;
             }
         }
     }
