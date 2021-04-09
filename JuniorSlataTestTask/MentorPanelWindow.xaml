@@ -14,7 +14,7 @@
                     <DropShadowEffect BlurRadius="20" Opacity="0.8" ShadowDepth="10" Color="#70227E" Direction="315" />
                 </Border.Effect>
                 <StackPanel>
-                    <Button Content="Изменить права" Margin="0 5" />
+                    <Button Content="Задание выполнено" Margin="0 5" Click="TaskCompleteBtnClick" />
                     <Separator Background="Black" Margin="0 20 0 5" />
                     <Button Content="Выйти из аккаунта" Click="SignOutBtnClick" Margin="0 5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignRaisedLightButton}" />
                 </StackPanel>
@@ -27,11 +27,15 @@
                     <DataGrid x:Name="UserDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" FontSize="14" FontFamily="Consolas">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding id}" Header="id" Width="auto" IsReadOnly="True" FontWeight="Bold" />
-                            <DataGridTextColumn Binding="{Binding Login}" Header="login" Width="auto" IsReadOnly="True" FontWeight="Bold" />
-                            <DataGridTextColumn Binding="{Binding Password}" Header="password" Width="auto" IsReadOnly="True" FontWeight="Bold" />
-                            <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="auto" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия" Width="auto" IsReadOnly="True" />
-                            <DataGridTextColumn Binding="{Binding Permission}" Header="Права доступа" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding FullName}" Header="ФИО" Width="auto" IsReadOnly="True" FontWeight="Bold" />
+                            <DataGridTextColumn Binding="{Binding Position}" Header="Должность" Width="auto" IsReadOnly="True" FontWeight="Bold" />
+                            <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Номер телефона" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Task.DateTimeStart, StringFormat=\{0:dd.MM.yy\}}" Header="Дата собеседования" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding TimeToTask}" Header="Срок выполнения задания" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Manager.Surname}" Header="Собеседователь" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Mentor.Surname}" Header="Руководитель" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Task.DateTimeEnd, StringFormat=\{0:dd.MM.yy\}}" Header="Дата выполнения задания" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Task.Completeness}" Header="Выполнение задания" Width="auto" IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

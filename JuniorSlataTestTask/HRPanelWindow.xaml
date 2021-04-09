@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:JuniorSlataTestTask"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Панель администратора" Height="450" Width="800" WindowStartupLocation="CenterScreen" MaxWidth="1000" MaxHeight="600" SizeChanged="Window_SizeChanged" Closing="Window_Closing">
+        Title="Панель собеседователя" Height="450" Width="800" WindowStartupLocation="CenterScreen" MaxWidth="1000" MaxHeight="600" SizeChanged="Window_SizeChanged" Closing="Window_Closing">
     <Grid Background="#3f3f3f">
         <Grid>
             <Border x:Name="controlContainer" Width="Auto" Margin="15" Padding="25" HorizontalAlignment="Left" Background="#D5D5D5" CornerRadius="35">
@@ -36,6 +36,7 @@
                             <DataGridTextColumn Binding="{Binding TimeToTask}" Header="Срок выполнения задания" Width="auto" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding Manager.Surname}" Header="Собеседователь" Width="auto" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding Mentor.Surname}" Header="Руководитель" Width="auto" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Task.DateTimeEnd, StringFormat=\{0:dd.MM.yy\}}" Header="Дата выполнения задания" Width="auto" IsReadOnly="True" />
                             <DataGridTextColumn Binding="{Binding Task.Completeness}" Header="Выполнение задания" Width="auto" IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
