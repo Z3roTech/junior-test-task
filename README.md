@@ -2,9 +2,9 @@
 This is my testing task to junior job, but I turned it in sandbox program where I use new things for me.  
    
 ### Build
-For build you must create database:
+For build you must create database:   
 **Default:** using MSSQL Server, database "Slata"
-For simple add use: Add-Migration, Update-Database in Package Manager Console (Visual Studio);
+For simple add use: Add-Migration, Update-Database in Package Manager Console (Visual Studio);   
 **Important** Change database connection settings in _Data/AppContext_ before migration and updating database.
 
 ### Additional project plugins
